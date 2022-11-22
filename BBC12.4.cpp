@@ -1,0 +1,35 @@
+#include<stdio.h>
+main()
+{
+ long long n=2021041820210418,a,b,c,i,n1,ans=0,j;
+ for(i=1;i*i<=n;i++)
+ {
+  if(n%i==0)
+  {
+   a=i;
+   n1=n/a;
+   for(j=1;j*j<=n1;j++)
+   {
+    if(n1%j==0)
+    {
+     b=j;
+     c=n1/j;
+     if(a<=b&&b<=c)
+     {
+      if(a==b&&b==c)
+      ans++;
+     if(a==b&&b!=c)
+      ans+=3;
+     if(a!=b&&b==c)
+      ans+=3;
+     if(a==c&&b!=c)
+      ans+=3;
+     if(a!=b&&b!=c&&a!=c)
+      ans+=6;
+     }
+    }
+   }
+  }
+ }
+ printf("%d",ans);
+}
